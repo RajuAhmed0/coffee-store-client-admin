@@ -3,7 +3,7 @@ import React from 'react';
 const Banner = () => {
     return (
         <div
-            className="hero min-h-screen text-center sm:text-left"
+            className="hero md:min-h-screen md:py-0 py-14  text-center sm:text-left"
             style={{
                 backgroundImage: "url(https://i.ibb.co.com/KphNY33r/3.png)",
             }}
@@ -17,7 +17,7 @@ const Banner = () => {
                     <p className="md:leading-[30px] mb-5 railwayFont font-normal md:text-base text-sm">
                         It's coffee time - Sip & Savor - Relaxation in every sip! Get the nostalgia back!! Your companion of every moment!!! Enjoy the beautiful moments and make them memorable.
                     </p>
-                    <button className=" bg-[#E3B577] px-[22px] py-[9px] font-normal text-2xl text-[#242222]  hover:bg-[#e3b477de] hover:text-white">
+                    <button className=" bg-[#E3B577] px-[22px] py-[9px] font-normal text-2xl text-[#242222] hover:text-white">
                         Learn More
                     </button>
                 </div>

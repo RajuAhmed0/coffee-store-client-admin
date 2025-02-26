@@ -12,13 +12,13 @@ const Instagram = () => {
         "https://i.ibb.co.com/cSRbZv7x/Rectangle-16.png",
     ]
     return (
-        <div>
-            <div className="container mx-auto px-3 md:px-6 md:py-28 py-12">
+        <div className='max-w-[1320px] mx-auto xl:px-0 px-3'>
+            <div className="container mx-auto  md:py-28 py-12">
                 <div className="text-center md:pb-12 pb-6">
                     <p className="railwayFont font-normal md:text-xl text-[#1B1A1A]">
                         Follow Us Now
                     </p>
-                    <h1 className="text-[#331A15] md:text-[55px] text-4xl font-normal text-chocolate">
+                    <h1 className="text-[#331A15] md:text-[55px] mt-2 text-4xl font-normal text-chocolate">
                         Follow on Instagram
                     </h1>
                 </div>

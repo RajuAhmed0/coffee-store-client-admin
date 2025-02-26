@@ -66,7 +66,7 @@ const Footer = () => {
                                 placeholder="Name"
                                 name="name"
                                 style={{ outline: "none" }}
-                                className="input w-full max-w-md railwayFont rounded-[5px]"
+                                className="input w-full max-w-md railwayFont rounded-[5px] focus:border-[#E3B577] focus:shadow-md"
                                 required
                             />
                             <input
@@ -74,7 +74,7 @@ const Footer = () => {
                                 placeholder="Your Email"
                                 name="email"
                                 style={{ outline: "none" }}
-                                className="input w-full max-w-md railwayFont rounded-[5px]"
+                                className="input w-full max-w-md railwayFont rounded-[5px] focus:border-[#E3B577] focus:shadow-md "
                                 required
                             />
                             <textarea
@@ -82,7 +82,7 @@ const Footer = () => {
                                 placeholder="Message"
                                 name="message"
                                 style={{ outline: "none" }}
-                                className="input w-full max-w-md railwayFont rounded-[5px] h-28 py-2"
+                                className="input w-full max-w-md railwayFont rounded-[5px] focus:border-[#E3B577] focus:shadow-md h-28 py-2"
                             ></textarea>
                             <button
                                 type="submit"

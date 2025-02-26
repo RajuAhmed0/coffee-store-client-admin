@@ -21,7 +21,7 @@ const Footer = () => {
                 <div className="container mx-auto px-3 md:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 text-center md:text-left">
                     <div className="space-y-4">
                         <h2 className="text-[#331A15] text-[45px] md:mt-6 font-normal ">
-                        Espresso Emporium
+                            Espresso Emporium
                         </h2>
                         <p className="railwayFont font-normal 2xl:text-xl text-[#1B1A1A] md:mt-8 md:pb-4 md:pr-6 ">
                             Always ready to be your friend. Come & Contact with
@@ -36,19 +36,19 @@ const Footer = () => {
                         </div>
                         <h2 className="text-[#331A15] text-[45px] font-normal ">Get in Touch</h2>
                         <div className="flex gap-3 items-center justify-center md:justify-start">
-                            <FaPhoneAlt size={24} className='text-[#331A15]'/>
+                            <FaPhoneAlt size={24} className='text-[#331A15]' />
                             <span className="railwayFont font-normal md:text-xl text-[#1B1A1A]">
                                 +88 01555 011 112
                             </span>
                         </div>
                         <div className="flex gap-3 items-center justify-center md:justify-start">
-                            <FaEnvelope size={24} className='text-[#331A15]'/>
+                            <FaEnvelope size={24} className='text-[#331A15]' />
                             <span className="railwayFont font-normal md:text-xl text-[#1B1A1A]">
                                 rajuahmed@gmail.com
                             </span>
                         </div>
                         <div className="flex gap-3 items-center justify-center md:justify-start">
-                            <IoLocationSharp size={24} className='text-[#331A15]'/>
+                            <IoLocationSharp size={24} className='text-[#331A15]' />
                             <span className="railwayFont font-normal md:text-xl text-[#1B1A1A]">
                                 220, Baraigram Road, Nator
                             </span>

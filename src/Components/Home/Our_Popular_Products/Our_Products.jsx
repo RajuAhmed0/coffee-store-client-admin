@@ -4,6 +4,7 @@ import { RiCupLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 const Our_Products = () => {
+    
     return (
         <div className="bg-cover 2xl:bg-[url('https://i.ibb.co.com/j0J5JcS/1.png')] xl:bg-[url('https://i.ibb.co.com/j0J5JcS/1.png')]   lg:bg-none md:bg-none sm:bg-none">
             <div className="text-center pb-10 md:mt-[120px] mt-16 max-w-[1320px] mx-auto">
@@ -39,7 +40,7 @@ const Our_Products = () => {
                                 <MdRemoveRedEye size={25} />
                             </Link>
                             <Link
-                                to={"/Update_Coffee"}
+                                to={"/Update_Existing_Coffee"}
                                 className="bg-[#3C393B] w-10 h-10 flex justify-center items-center text-white rounded"
                             >
                                 <MdEdit size={25} />

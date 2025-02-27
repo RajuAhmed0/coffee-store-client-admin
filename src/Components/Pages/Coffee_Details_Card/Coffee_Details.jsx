@@ -34,27 +34,27 @@ const Coffee_Details = () => {
                         </h3>
                         <div className="railwayFont space-y-2 text-[#5C5B5B] 2xl:text-xl xl:text-lg">
                             <p>
-                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                <span className="font-semibold railwayFont text-[#5C5B5B]">
                                     Chef: {coffeeInfo.chef}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                <span className="font-semibold railwayFont text-[#5C5B5B]">
                                     Supplier: {coffeeInfo.supplier}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                <span className="font-semibold railwayFont text-[#5C5B5B]">
                                     Taste: {coffeeInfo.taste}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                <span className="font-semibold railwayFont text-[#5C5B5B]">
                                     Category: {coffeeInfo.category}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                <span className="font-semibold railwayFont text-[#5C5B5B]">
                                     Details: {coffeeInfo.details}
                                 </span>
                             </p>

@@ -55,7 +55,7 @@ const Our_Products = () => {
                                 </div>
                                 <div className="flex gap-4 sm:flex-col">
                                     <Link
-                                        // to={`/coffee/${coffee._id}`}
+                                        to={`/coffee/${coffee._id}`}
                                         className="bg-[#D2B48C] w-10 h-10 flex justify-center hover:text-black items-center text-white rounded"
                                     >
                                         <MdRemoveRedEye size={25} />

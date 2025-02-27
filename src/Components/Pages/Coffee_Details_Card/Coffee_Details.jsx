@@ -8,8 +8,8 @@ const Coffee_Details = () => {
     }, []);
 
 
-    // const coffeeInfo = useLoaderData()
-    // console.log(coffeeInfo);
+    const coffeeInfo = useLoaderData()
+    console.log(coffeeInfo);
 
     return (
         <div>
@@ -20,42 +20,42 @@ const Coffee_Details = () => {
                         Back to home
                     </span>
                 </Link>
-                <div className="bg-[#F4F3F0] py-16 px-3 text-center lg:text-left lg:px-28 rounded grid grid-cols-1 md:grid-cols-2 gap-5 mx-2 ">
+                <div className="bg-[#F4F3F0] py-16 px-3  lg:text-left lg:px-28 rounded grid grid-cols-1 md:grid-cols-2 gap-5 mx-2 ">
                     <div className="flex items-center">
                         <img
-                            src={""}
+                            src={coffeeInfo.photo}
                             alt="coffee"
-                            className="mx-auto"
+                            className="mx-auto xl:w-[351px] "
                         />
                     </div>
                     <div className="flex flex-col justify-center gap-4">
                         <h3 className="text-4xl text-[#331A15] font-normal ">
-                          Cappuccino
+                          {coffeeInfo.name}
                         </h3>
-                        <div className="font-raleway space-y-2 text-[#5C5B5B] text-xl">
+                        <div className="railwayFont space-y-2 text-[#5C5B5B] 2xl:text-xl xl:text-lg">
                             <p>
-                                <span className="font-semibold text-[#1B1A1A]">
-                                    Chef:
+                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                    Chef: {coffeeInfo.chef}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold text-[#1B1A1A]">
-                                    Supplier:
+                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                    Supplier: {coffeeInfo.supplier}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold text-[#1B1A1A]">
-                                    Taste:
+                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                    Taste: {coffeeInfo.taste}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold text-[#1B1A1A]">
-                                    Category:
+                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                    Category: {coffeeInfo.category}
                                 </span>
                             </p>
                             <p>
-                                <span className="font-semibold text-[#1B1A1A]">
-                                    Details:
+                                <span className="font-semibold railwayFont text-[#1B1A1A]">
+                                    Details: {coffeeInfo.details}
                                 </span>
                             </p>
                         </div>

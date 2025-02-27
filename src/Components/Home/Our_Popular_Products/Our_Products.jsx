@@ -35,14 +35,14 @@ const Our_Products = () => {
                     <RiCupLine className="text-chocolate" />
                 </Link>
 
-                <div className='grid grid-cols-2 gap-6'>
+                <div className='grid lg:grid-cols-2 md:grid-cols-1 gap-6 xl:mx-0 mx-3'>
                     {
                         coffeeData?.map((coffee, index) => (
-                            <div key={index} className="bg-[#F5F4F1] p-8 flex gap-3 flex-col sm:flex-row items-center rounded-md">
+                            <div key={index} className="bg-[#F5F4F1] xl:p-8 md:p-3 p-5 flex gap-3 flex-col sm:flex-row items-center rounded-md">
                                 <div>
                                     <img src={coffee.photo} alt={coffee.name} className="max-w-44" />
                                 </div>
-                                <div className="flex-grow text-xl text-start text-[#5C5B5B] space-y-2">
+                                <div className="flex-grow xl:text-xl text-start text-[#5C5B5B] space-y-2">
                                     <p className='railwayFont'>
                                         <span className="font-semibold text-[#1B1A1A] railwayFont ">Name:</span> {coffee.name}
                                     </p>
@@ -55,7 +55,7 @@ const Our_Products = () => {
                                 </div>
                                 <div className="flex gap-4 sm:flex-col">
                                     <Link
-                                        to={"/Coffee_Details"}
+                                        // to={`/coffee/${coffee._id}`}
                                         className="bg-[#D2B48C] w-10 h-10 flex justify-center hover:text-black items-center text-white rounded"
                                     >
                                         <MdRemoveRedEye size={25} />

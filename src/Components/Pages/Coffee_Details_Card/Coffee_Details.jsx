@@ -1,11 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const Coffee_Details = () => {
  useEffect(() => {
-        window.scrollTo(0, 0); // Scroll to the top when the component mounts
+        window.scrollTo(0, 0); 
     }, []);
+
+
+    // const coffeeInfo = useLoaderData()
+    // console.log(coffeeInfo);
 
     return (
         <div>
@@ -19,7 +23,7 @@ const Coffee_Details = () => {
                 <div className="bg-[#F4F3F0] py-16 px-3 text-center lg:text-left lg:px-28 rounded grid grid-cols-1 md:grid-cols-2 gap-5 mx-2 ">
                     <div className="flex items-center">
                         <img
-                            src="https://i.ibb.co.com/bMrc8SPp/1.png"
+                            src={""}
                             alt="coffee"
                             className="mx-auto"
                         />

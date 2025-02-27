@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Coffee_Add = () => {
 
     useEffect(() => {
-        window.scrollTo(0, 0); // Scroll to the top when the component mounts
+        window.scrollTo(0, 0);
     }, []);
 
     return (

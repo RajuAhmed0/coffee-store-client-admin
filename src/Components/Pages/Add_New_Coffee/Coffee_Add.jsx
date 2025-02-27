@@ -1,12 +1,63 @@
 import React, { useEffect } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Coffee_Add = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    const handleAddCoffeeBtn = (e) => {
+        e.preventDefault();
+
+        const formData = e.target;
+        const name = formData.name.value;
+        const chef = formData.chef.value;
+        const supplier = formData.supplier.value;
+        const taste = formData.taste.value;
+        const category = formData.category.value;
+        const price = formData.price.value;
+        const details = formData.details.value;
+        const photo = formData.photoUrl.value;
+
+        const formCoffeeData = {
+            name,
+            chef,
+            supplier,
+            taste,
+            category,
+            price,
+            details,
+            photo
+        };
+
+        fetch("http://localhost:4000/coffee", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formCoffeeData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Coffee Added",
+                        icon: "success",
+                        draggable: true
+                    });
+                    formData.reset();
+                }
+            })
+            .catch(error => console.error("Error:", error));
+    };
+
+
+
+
 
     return (
         <div>
@@ -30,7 +81,7 @@ const Coffee_Add = () => {
                             that it has a more-or-less normal distribution of
                             letters, as opposed to using Content here.
                         </p>
-                        <form >
+                        <form onSubmit={handleAddCoffeeBtn}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label className="form-control">
                                     <div className="label">

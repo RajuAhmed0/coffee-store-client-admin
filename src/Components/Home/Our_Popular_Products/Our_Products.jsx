@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { MdDelete, MdEdit, MdRemoveRedEye } from 'react-icons/md';
 import { RiCupLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Our_Products = () => {
 
@@ -15,6 +16,41 @@ const Our_Products = () => {
             .catch(error => console.error('Error:', error));
 
     }, [])
+
+
+    const handleDeleteBtn = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:4000/coffee/${id}`, {
+                    method: "DELETE"
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            const coffeeInfo = coffeeData.filter(coffee => coffee._id !== id)
+                            setCoffeeData(coffeeInfo)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+
+                    })
+            }
+        });
+
+    }
 
 
 
@@ -66,7 +102,7 @@ const Our_Products = () => {
                                     >
                                         <MdEdit size={25} />
                                     </Link>
-                                    <button className="bg-[#EA4744] w-10 h-10 flex justify-center items-center hover:text-black text-white rounded active:scale-95 transition-all">
+                                    <button onClick={() => handleDeleteBtn(coffee._id)} className="bg-[#EA4744] w-10 h-10 flex justify-center items-center hover:text-black text-white rounded active:scale-95 transition-all">
                                         <MdDelete size={25} />
                                     </button>
                                 </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Banner = () => {
+    
     return (
         <div
             className="hero 2xl:h-[800px] xl:h-[600px] lg:h-[500px] md:h-[400px]  md:py-0 py-14  text-center sm:text-left"

@@ -97,7 +97,7 @@ const Our_Products = () => {
                                         <MdRemoveRedEye size={25} />
                                     </Link>
                                     <Link
-                                        to={"/Update_Existing_Coffee"}
+                                        to={`/Update_Existing_Coffee/${coffee._id}`}
                                         className="bg-[#3C393B] w-10 h-10 flex justify-center items-center hover:text-[#D2B48C] text-white rounded"
                                     >
                                         <MdEdit size={25} />

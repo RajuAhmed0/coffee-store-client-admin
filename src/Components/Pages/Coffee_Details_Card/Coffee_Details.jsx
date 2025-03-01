@@ -13,6 +13,7 @@ const Coffee_Details = () => {
 
     return (
         <div>
+            <h1>hello</h1>
             <div className="container mx-auto px-3 lg:px-6 py-16 space-y-10">
                 <Link to="/" className="flex items-center gap-3 ">
                     <IoMdArrowBack className="text-2xl" />

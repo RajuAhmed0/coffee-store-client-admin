@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 
 const Update_Coffee = () => {
 
@@ -9,12 +9,15 @@ const Update_Coffee = () => {
     }, []);
 
 
-    const params = useParams()
+    const params = useParams();
+    console.log("Params:", params);
+    const id = params.id;
+    console.log("Coffee ID:", id);
 
 
     const handleCoffeeSubmit = (e) => {
         e.preventDefault();
-        const id = params.id
+
         const from = e.target;
         const name = from.name.value;
         const chef = from.chef.value;
@@ -25,7 +28,8 @@ const Update_Coffee = () => {
         const price = from.price.value;
         const photoUrl = from.photoUrl.value;
 
-        const coffee = {
+        const coffeeData = {
+        
             name,
             chef,
             supplier,
@@ -33,17 +37,18 @@ const Update_Coffee = () => {
             taste,
             category,
             price,
-            photoUrl,
+            photoUrl
         }
-        console.log(coffee);
+        console.log(coffeeData);
 
-        fetch(`http://localhost:4000/coffee/${id}`, {
+        fetch(`http://localhost:4000/update_coffee/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(coffee),
+            body: JSON.stringify(coffeeData),
         })
+
             .then((res) => res.json())
             .then((result) => {
                 if (result) {
@@ -61,6 +66,7 @@ const Update_Coffee = () => {
 
     return (
         <div>
+         
             <div className="bg-cover 2xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')] xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')]   lg:bg-none md:bg-none sm:bg-none">
 
                 <div className="container mx-auto px-3 md:px-6 py-16 space-y-10">

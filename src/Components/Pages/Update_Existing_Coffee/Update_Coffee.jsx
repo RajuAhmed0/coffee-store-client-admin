@@ -1,11 +1,65 @@
 import React, { useEffect } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Update_Coffee = () => {
+
+    const params = useParams()
+
     useEffect(() => {
-        window.scrollTo(0, 0); 
+        window.scrollTo(0, 0);
     }, []);
+
+
+
+
+    const handleCoffeeSubmit = (e) => {
+        e.preventDefault();
+        const id = params.id
+        const from = e.target;
+        const name = from.name.value;
+        const chef = from.chef.value;
+        const supplier = from.supplier.value;
+        const details = from.details.value;
+        const taste = from.taste.value;
+        const category = from.category.value;
+        const price = from.price.value;
+        const photo = from.photo.value;
+
+        const coffee = {
+            name,
+            chef,
+            supplier,
+            details,
+            taste,
+            category,
+            price,
+            photo,
+        }
+        console.log(coffee);
+
+        fetch(`http://localhost:4000/coffee/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result) {
+
+                    alert("Coffee details updated successfully!");
+                } else {
+                    alert("Failed to update coffee details.");
+                }
+            })
+            .catch((error) => console.error("Error updating coffee:", error));
+    };
+
+
+
+
     return (
         <div>
             <div className="bg-cover 2xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')] xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')]   lg:bg-none md:bg-none sm:bg-none">
@@ -28,7 +82,7 @@ const Update_Coffee = () => {
                             that it has a more-or-less normal distribution of
                             letters, as opposed to using Content here.
                         </p>
-                        <form >
+                        <form onSubmit={handleCoffeeSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label className="form-control">
                                     <div className="label">

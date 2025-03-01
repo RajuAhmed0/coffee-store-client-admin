@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SecNav from './SecNav';
 
 const Nav = () => {
     return (
@@ -10,6 +11,7 @@ const Nav = () => {
                     <Link to={"/"} ><h1 className="xl:text-6xl lg:text-5xl md:text-[40px] text-[25px] text-white font-bold">Espresso Emporium</h1></Link>
                 </div>
             </div>
+            <SecNav></SecNav>
         </div>
 
     );

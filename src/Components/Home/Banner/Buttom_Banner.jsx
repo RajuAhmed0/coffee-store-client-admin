@@ -2,8 +2,8 @@ import React from 'react';
 
 const Buttom_Banner = () => {
     return (
-        <div className='bg-[#ECEAE3] md:py-14 py-10'>
-            <div className="container mx-auto px-3 md:px-6">
+        <div className='bg-[#ECEAE3] md:py-14 py-10 '>
+            <div className="container mx-auto px-3 md:px-6 max-w-[1320px]">
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:gap-[39px] xl:gap-5 gap-6 '>
                     <div className="text-center sm:text-left px-8 sm:px-0">
                         <div className="md:mb-4 ">

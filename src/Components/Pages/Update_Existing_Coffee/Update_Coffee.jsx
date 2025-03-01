@@ -4,13 +4,12 @@ import { Link, useParams } from 'react-router-dom';
 
 const Update_Coffee = () => {
 
-    const params = useParams()
-
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
 
+    const params = useParams()
 
 
     const handleCoffeeSubmit = (e) => {
@@ -24,7 +23,7 @@ const Update_Coffee = () => {
         const taste = from.taste.value;
         const category = from.category.value;
         const price = from.price.value;
-        const photo = from.photo.value;
+        const photoUrl = from.photoUrl.value;
 
         const coffee = {
             name,
@@ -34,7 +33,7 @@ const Update_Coffee = () => {
             taste,
             category,
             price,
-            photo,
+            photoUrl,
         }
         console.log(coffee);
 
@@ -43,7 +42,7 @@ const Update_Coffee = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),
+            body: JSON.stringify(coffee),
         })
             .then((res) => res.json())
             .then((result) => {

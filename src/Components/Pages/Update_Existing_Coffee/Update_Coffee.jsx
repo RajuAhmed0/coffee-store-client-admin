@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoMdArrowBack } from 'react-icons/io';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 
@@ -7,6 +7,10 @@ const Update_Coffee = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+  const coffeeInfo = useLoaderData()
+  console.log(coffeeInfo);
+  
 
 
     const params = useParams();
@@ -26,10 +30,10 @@ const Update_Coffee = () => {
         const taste = from.taste.value;
         const category = from.category.value;
         const price = from.price.value;
-        const photoUrl = from.photoUrl.value;
+        const photoUrl = from.photo.value;
 
         const coffeeData = {
-        
+
             name,
             chef,
             supplier,
@@ -66,7 +70,7 @@ const Update_Coffee = () => {
 
     return (
         <div>
-         
+
             <div className="bg-cover 2xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')] xl:bg-[url('https://i.ibb.co.com/Ld6pjvmr/11.png')]   lg:bg-none md:bg-none sm:bg-none">
 
                 <div className="container mx-auto px-3 md:px-6 py-16 space-y-10">
@@ -98,6 +102,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="name"
+                                        defaultValue={coffeeInfo.name}
                                         placeholder="Enter coffee name"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -113,6 +118,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="chef"
+                                        defaultValue={coffeeInfo.chef}
                                         placeholder="Enter coffee chef"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -130,6 +136,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="supplier"
+                                        defaultValue={coffeeInfo.supplier}
                                         placeholder="Enter coffee supplier"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -138,6 +145,7 @@ const Update_Coffee = () => {
                                 </label>
                                 <label className="form-control">
                                     <div className="label">
+                                        
                                         <span className="label-text railwayFont font-semibold">
                                             Taste
                                         </span>
@@ -145,6 +153,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="taste"
+                                        defaultValue={coffeeInfo.taste}
                                         placeholder="Enter coffee taste"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -162,6 +171,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="category"
+                                        defaultValue={coffeeInfo.category}
                                         placeholder="Enter coffee category"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -177,6 +187,7 @@ const Update_Coffee = () => {
                                     <input
                                         type="text"
                                         name="price"
+                                        defaultValue={coffeeInfo.price}
                                         placeholder="Enter coffee price"
                                         style={{ outline: "none" }}
                                         className="input railwayFont "
@@ -193,6 +204,7 @@ const Update_Coffee = () => {
                                 <input
                                     type="text"
                                     name="details"
+                                    defaultValue={coffeeInfo.details}
                                     placeholder="Enter coffee details"
                                     style={{ outline: "none" }}
                                     className="input railwayFont "
@@ -207,7 +219,8 @@ const Update_Coffee = () => {
                                 </div>
                                 <input
                                     type="text"
-                                    name="photoUrl"
+                                    name="photo"
+                                    defaultValue={coffeeInfo.photo}
                                     placeholder="Enter photo URL"
                                     style={{ outline: "none" }}
                                     className="input railwayFont "

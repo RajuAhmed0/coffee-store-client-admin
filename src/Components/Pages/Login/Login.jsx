@@ -3,6 +3,8 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../../../Firebase/firebase.config';
 
 const Login = () => {
 
@@ -22,6 +24,16 @@ const Login = () => {
     };
 
 
+    const handleGoogleLogin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                console.log(result.user);
+                navigate(location.state ? location.state : "/");
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
 
 
     return (
@@ -33,12 +45,12 @@ const Login = () => {
                         <div className='border my-[50px]'></div>
                         <form className='p-[21px]' onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-4">
-                                
+
                                 <label className="block text-gray-700 font-medium mb-2">Email </label>
                                 <input type="email" {...register("email")} className="w-full railwayFont bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your email address" required />
                             </div>
                             <div className="mb-4">
-                               
+
                                 <label className="block text-gray-700 font-medium mb-2">Password </label>
                                 <input type="password"  {...register("password")} className="w-full railwayFont bg-[#F3F3F3] px-[20px] py-[20.5px]" placeholder="Enter your password" required />
                             </div>
@@ -56,7 +68,7 @@ const Login = () => {
 
 
                         <button
-
+                            onClick={handleGoogleLogin}
                             className="flex items-center gap-2 font-semibold border-2 py-2 w-full hover:bg-[#7e3526] hover:text-white justify-center "
                         >
                             <FcGoogle className="text-3xl" /> Login With Google
@@ -64,7 +76,7 @@ const Login = () => {
 
                         <p className="text-center mt-6 text-gray-600">
                             Don’t Have An Account?{" "}
-                            <Link  to="/register" className="text-[#7e3526] font-medium hover:underline">
+                            <Link to="/register" className="text-[#7e3526] font-medium hover:underline">
                                 Register
                             </Link>
                         </p>

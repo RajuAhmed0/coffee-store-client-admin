@@ -3,6 +3,8 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useForm } from 'react-hook-form';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider } from '../../../Firebase/firebase.config';
 
 const Register = () => {
 
@@ -13,11 +15,25 @@ const Register = () => {
     const onSubmit = (data) => {
         userCreate(data.email, data.password)
             .then(userInfo => {
-                console.log( userInfo);
+                console.log(userInfo);
                 navigate(location.state ? location.state : "/login")
+
             })
             .catch(err => {
                 console.error(err);
+            });
+    };
+
+
+    const handleGoogleLogin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                console.log(result.user);
+                navigate(location.state ? location.state : "/");
+            })
+            .catch(error => {
+               console.log(error);
+               
             });
     };
 
@@ -54,8 +70,8 @@ const Register = () => {
                         <div>
                             <label className="block text-gray-700 font-medium mb-2">Photo URL</label>
                             <input
-                                type="PhotoUrl"
-                                {...register("PhotoUrl")}
+                                type="photoURL"
+                                {...register("photoURL")}
                                 className="w-full railwayFont bg-[#F3F3F3] px-4 py-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-black"
                                 placeholder="Enter your photo URL"
                                 required
@@ -88,7 +104,7 @@ const Register = () => {
 
 
                     <button
-
+                        onClick={handleGoogleLogin}
                         className="flex items-center gap-2 font-semibold border-2 py-2 w-full hover:bg-[#492923] hover:text-white justify-center "
                     >
                         <FcGoogle className="text-3xl" /> Login With Google

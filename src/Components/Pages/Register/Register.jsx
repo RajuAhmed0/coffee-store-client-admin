@@ -8,7 +8,7 @@ import { auth, googleProvider } from '../../../Firebase/firebase.config';
 
 const Register = () => {
 
-    const { userCreate } = useContext(AuthContext);
+    const { userCreate, profileUpdate, } = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate()
 
@@ -16,13 +16,36 @@ const Register = () => {
         userCreate(data.email, data.password)
             .then(userInfo => {
                 console.log(userInfo);
-                navigate(location.state ? location.state : "/login")
 
+                const mongodbUser = {
+                    displayName: userInfo.user.displayName,
+                    email: userInfo.user.email,
+                    creationTime: userInfo.user.metadata.creationTime,
+                    lastSignInTime: userInfo.user.metadata.lastSignInTime
+                };
+
+                fetch("http://localhost:4000/users", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(mongodbUser),
+                });
+            })
+            .then(() => {
+                navigate(location.state ? location.state : "/login");
             })
             .catch(err => {
-                console.error(err);
+                if (err.code === "auth/email-already-in-use") {
+                    alert("This email is already in use. Try logging in instead.");
+                } else {
+                    console.error("Error:", err);
+                }
             });
     };
+
+
+
+
+
 
 
     const handleGoogleLogin = () => {
@@ -32,8 +55,8 @@ const Register = () => {
                 navigate(location.state ? location.state : "/");
             })
             .catch(error => {
-               console.log(error);
-               
+                console.log(error);
+
             });
     };
 
@@ -84,7 +107,7 @@ const Register = () => {
                                 type="password"
                                 {...register("password")}
                                 className="w-full railwayFont bg-[#F3F3F3] px-4 py-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-black"
-                                placeholder="Enter your photo URL"
+                                placeholder="Enter your Password"
                                 required
                             />
                         </div>

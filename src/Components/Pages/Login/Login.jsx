@@ -16,6 +16,27 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(userInfo => {
                 console.log(userInfo);
+
+                const mongodbUser = {
+                    email: userInfo.user.email,
+                    lastSignInTime: userInfo.user.metadata.lastSignInTime
+                }
+
+
+                fetch('http://localhost:4000/users', {
+                    method: "PATCH",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(mongodbUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+
+                    })
+
+
                 navigate(location.state ? location.state : "/")
             })
             .catch(err => {

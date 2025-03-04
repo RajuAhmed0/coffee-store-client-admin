@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 import { createContext } from 'react';
 import { auth } from '../../Firebase/firebase.config';
@@ -15,11 +15,17 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, pass)
     }
 
-
+    const profileUpdate = (name, photoURL) =>{
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoURL
+        })
+    }
 
     const coffeeInfo = {
         userCreate,
         signIn,
+        profileUpdate
     }
     return (
         <AuthContext.Provider value={coffeeInfo}>
